@@ -68,7 +68,8 @@ class Products with ChangeNotifier {
   // }
 
   Future<void> fetchAndSetProducts() async {
-   final url = Uri.parse('https://flutter-test-shop-app-6d31a-default-rtdb.firebaseio.com/products');    try {
+    final url = Uri.parse('https://flutter-test-shop-app-6d31a-default-rtdb.firebaseio.com/products.json');
+    try {
       final response = await http.get(url);
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       final List<Product> loadedProducts = [];
@@ -90,7 +91,7 @@ class Products with ChangeNotifier {
   }
 
   Future<void> addProduct(Product product) async {
-final url = Uri.parse('https://flutter-test-shop-app-6d31a-default-rtdb.firebaseio.com/products');
+   final url = Uri.parse('https://flutter-test-shop-app-6d31a-default-rtdb.firebaseio.com/products.json');
     try {
       final response = await http.post(
         url,
