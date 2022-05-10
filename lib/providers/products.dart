@@ -67,9 +67,9 @@ class Products with ChangeNotifier {
   //   notifyListeners();
   // }
 
-  void addProduct(Product product) {
-    final url = Uri.parse('https://flutter-test-shop-app-6d31a-default-rtdb.firebaseio.com/products.json');
-    http
+  Future<void> addProduct(Product product) {
+    final url = Uri.parse('https://flutter-update.firebaseio.com/products.json');
+    return http
         .post(
       url,
       body: json.encode({
